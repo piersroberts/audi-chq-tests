@@ -1,0 +1,32 @@
+{
+	"id": "e29374c1-108a-f94f-ad94-51b0857324a8",
+	"name": "Audi Nativ Prelive",
+	"values": [
+		{
+			"key": "protocol",
+			"value": "https",
+			"type": "text",
+			"enabled": true,
+			"hovered": false
+		},
+		{
+			"key": "host",
+			"value": "www.audi.co.uk.prelive.nativ-systems.com",
+			"type": "text",
+			"enabled": true,
+			"hovered": false
+		},
+		{
+			"key": "port",
+			"value": "443",
+			"type": "text",
+			"enabled": true,
+			"hovered": false
+		}
+	],
+	"timestamp": 1466068278731,
+	"synced": false,
+	"syncedFilename": "",
+	"team": null,
+	"isDeleted": false
+}

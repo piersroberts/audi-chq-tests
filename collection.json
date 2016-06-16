@@ -1,0 +1,103 @@
+{
+	"variables": [],
+	"info": {
+		"name": "CHQ",
+		"_postman_id": "ef4de60f-f8ce-bb5e-eec0-70240bb325cf",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "All models",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "var jsonData = JSON.parse(responseBody);\ntests['Returns success'] = jsonData.desc === 'SUCCESS'\ntests[\"There are more than 20 results\"] = jsonData.result.length > 20;"
+					}
+				}
+			],
+			"request": {
+				"url": "{{protocol}}://{{host}}:{{port}}/audi-search/search/v1/model/all",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Model search",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "var jsonData = JSON.parse(responseBody);\ntests['Returns success'] = jsonData.desc === 'SUCCESS'"
+					}
+				}
+			],
+			"request": {
+				"url": "{{protocol}}://{{host}}:{{port}}/audi-search/search/v1/model",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "            "
+			},
+			"response": []
+		},
+		{
+			"name": "Only A1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "var jsonData = JSON.parse(responseBody);\ntests['Returns success'] = jsonData.desc === 'SUCCESS'\ntests[\"All models in the A1 range\"] = jsonData.result.filter(model=>model.range != 'A1').length === 0;"
+					}
+				}
+			],
+			"request": {
+				"url": "{{protocol}}://{{host}}:{{port}}/audi-search/search/v1/model?range=A1",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Only Quattros",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "var jsonData = JSON.parse(responseBody);\ntests['Returns success'] = jsonData.desc === 'SUCCESS'\ntests[\"All models are Quattro\"] = jsonData.result.filter(model=>!model.isQuattro).length === 0;"
+					}
+				}
+			],
+			"request": {
+				"url": "{{protocol}}://{{host}}:{{port}}/audi-search/search/v1/model?isQuattro=true",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
